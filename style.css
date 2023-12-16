@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather';
+    box-sizing: border-box;
+}
+
+body{
+    background: url("images/cutecat.jpg");
+    background-size: cover;
+    font-size: 20px;
+}
+
+.user_profile{
+    position: relative;
+    display: flex;
+    padding: 20px;
+    justify-content: right;
+}
+
+.user_image img{
+    width: 70px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.user_detail{
+    display: none;
+    padding: 10px;
+    background: lightpink;
+    border-radius: 20px;
+    line-height: 1.5;
+    border-style: solid;
+}
+
+.user_detail button{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.user_detail ul{
+    list-style: none;
+}
+
+.user_detail ul img{
+    width: 20px;
+}
+
+.user_detail li{
+    font-size: 18px;
+}
+
+.cost{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: lightblue; 
+    border-style: solid;;
+}
+
+.ingredient{
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.75;
+}
+
+.totalCost{
+    padding-top: 10px;
+    text-align: right;
+}
+
+.doneQuantity{
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.doneQuantity input{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.doneQuantity button{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.resultQuantity{
+    text-align: center;
+    padding-bottom: 20px;
+    line-height: 1.75;
+}
+
+.addItem{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.addItem input{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.addItem button{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+

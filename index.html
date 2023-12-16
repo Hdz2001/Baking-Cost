@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head> 
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0" >
+    <!--width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).--> 
+    <!--initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser..-->
+
+    <title>Baking ~.~</title>
+    <link rel = "icon" href = "images/cupcake.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <link rel = "stylesheet" href = "style.css">
+</head>
+
+<body>
+    <div class = "user_profile">
+        <div class = "user_detail">
+            <p> User Profile: </p>
+        
+            <ul>
+                <li><img src = "images/paw.png"> Username: conthocuteee</li>
+                <li><img src = "images/paw.png"> ZZZ:</li>
+            </ul>
+
+            <button>Edit your profile</button>
+        </div>
+
+        <div class = "user_image">          
+            <img src = "images/user.png">
+        </div>
+    </div>
+
+    <div class = "cost">
+        <h1>COST:</h1>
+
+        <div class = "ingredient">
+            <div class = "id"><h3>STT</h3></div>
+            <div class = "name"> <h3>Tên</h3> </div>
+            <div class = "quantity"> <h3>Số lượng</h3> </div>
+            <div class = "total"> <h3>Số tiền</h3> </div>
+            <div class = "realQuantity"> <h3>Số lượng TT</h3> </div>
+            <div class = "realTotal"> <h3>Số tiền TT</h3> </div>
+        </div>
+
+        <h2 class = "totalCost">Total Cost:</h1>
+
+        <div class = "doneQuantity">
+            <input type = "number" id = "doneNumber" placeholder="Làm được" spellcheck="false"> 
+            <input type = "number" id = "doneWeight" placeholder="Tổng số cân thực tế (g)" spellcheck="false">
+            <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán (g)" spellcheck="false">
+            <button> TÍNH </button>
+        </div>
+
+        <div class = "resultQuantity"></div>
+        
+        <div class = "addItem">
+            <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false"> 
+            <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG (G)" spellcheck="false">
+            <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false">
+            <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT (G)" spellcheck="false">
+            <button> THÊM </button>
+        </div>
+    </div>
+
+    <script src = "script.js"></script>
+    <script src = "cost.js"></script>
+
+    
+</body>
+
+</html>
