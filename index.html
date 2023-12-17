@@ -45,23 +45,38 @@
         </div>
 
         <h2 class = "totalCost">Total Cost:</h1>
+    </div>
 
-        <div class = "doneQuantity">
-            <input type = "number" id = "doneNumber" placeholder="Làm được" spellcheck="false"> 
-            <input type = "number" id = "doneWeight" placeholder="Tổng số cân thực tế (g)" spellcheck="false">
-            <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán (g)" spellcheck="false">
-            <button> TÍNH </button>
-        </div>
-
-        <div class = "resultQuantity"></div>
-        
+    <div class = "calculate">
         <div class = "addItem">
-            <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false"> 
-            <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG (G)" spellcheck="false">
-            <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false">
-            <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT (G)" spellcheck="false">
-            <button> THÊM </button>
+            <div class = "addItemPro"> 
+                <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false"> <br>
+                <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG (G)" spellcheck="false"> <br>
+                <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false"> <br>
+                <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT (G)" spellcheck="false"> <br>
+            </div>
+            
+            <button> THÊM </button> 
         </div>
+        
+        <div class = "calcItem">
+            <div class = "calcItemPro">
+                
+                <div class = "doneQuantity">
+                    <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm (g)" spellcheck="false"> <br>
+                    <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán (g)" spellcheck="false"> <br>
+                    
+                </div>
+
+                <button> TÍNH </button>
+            </div>
+
+            
+        
+            <div class = "resultQuantity"></div>
+        </div>
+        
+        
     </div>
 
     <script src = "script.js"></script>

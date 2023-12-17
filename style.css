@@ -72,38 +72,43 @@ body{
 
 .doneQuantity{
     text-align: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    margin: 20px;
 }
 
 .doneQuantity input{
     font-size: 20px;
     border-radius: 20px;
     padding: 10px;
+    margin: 10px;
 }
 
-.doneQuantity button{
+.calcItem button{
     font-size: 20px;
     border-radius: 20px;
     padding: 10px;
     cursor: pointer;
+    align-self: center;
 }
 
 .resultQuantity{
     text-align: center;
     padding-bottom: 20px;
     line-height: 1.75;
+    margin: 10px;
 }
 
 .addItem{
+    display: flex;
     text-align: center;
-    padding-bottom: 20px;
+    background-color: pink;
+    border-radius: 20px;
 }
 
 .addItem input{
     font-size: 20px;
     border-radius: 20px;
     padding: 10px;
+    margin: 10px;
 }
 
 .addItem button{
@@ -111,5 +116,22 @@ body{
     border-radius: 20px;
     padding: 10px;
     cursor: pointer;
+    align-self: center;
+    margin-right: 20px;
 }
 
+.addItemPro{
+    margin: 20px;
+}
+
+.calculate{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.calcItem{
+    text-align: center;
+    background-color: pink;
+    border-radius: 20px;
+}
