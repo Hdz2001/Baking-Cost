@@ -55,14 +55,34 @@ body{
     margin: 20px;
     padding: 10px;
     border-radius: 20px;
-    background-color: lightblue; 
-    border-style: solid;;
+    background-color: #89CFF0; 
+    border-style: solid;
 }
 
 .ingredient{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     line-height: 1.75;
+    align-items: baseline;
+}
+
+.edit img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.edit img:hover{
+    cursor: pointer;
+}
+
+.id{
+    text-align: center;
+}
+
+.edit{
+    text-align: center;
 }
 
 .totalCost{
@@ -91,6 +111,7 @@ body{
 }
 
 .resultQuantity{
+    
     text-align: center;
     padding-bottom: 20px;
     line-height: 1.75;
@@ -120,8 +141,19 @@ body{
     margin-right: 20px;
 }
 
+.editButton{ 
+    display: none;
+}
+
 .addItemPro{
     margin: 20px;
+    text-align: left;
+}
+
+select {
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .calculate{

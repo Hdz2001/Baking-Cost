@@ -36,6 +36,7 @@
         <h1>COST:</h1>
 
         <div class = "ingredient">
+            <div class = "edit"><h3>Chỉnh sửa</h3></div>
             <div class = "id"><h3>STT</h3></div>
             <div class = "name"> <h3>Tên</h3> </div>
             <div class = "quantity"> <h3>Số lượng</h3> </div>
@@ -50,32 +51,71 @@
     <div class = "calculate">
         <div class = "addItem">
             <div class = "addItemPro"> 
-                <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false"> <br>
-                <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG (G)" spellcheck="false"> <br>
-                <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false"> <br>
-                <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT (G)" spellcheck="false"> <br>
+                <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false">
+                 
+                <br>
+
+                <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG" spellcheck="false">
+                <select id="quantityItemUnit"> 
+                    <option value="gr">gr</option> 
+                    <option value="kg">kg</option> 
+                    <option value="L">L</option> 
+                    <option value="mL">mL</option> 
+                </select>
+
+                <br>
+
+                <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false"> 
+                
+                <br>
+
+                <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT (G)" spellcheck="false">
+                <select id="realQuantityItemUnit"> 
+                    <option value="gr">gr</option> 
+                    <option value="kg">kg</option> 
+                    <option value="L">L</option> 
+                    <option value="mL">mL</option> 
+                </select>
+                
+                <br>
             </div>
             
-            <button> THÊM </button> 
+            <button class = "addButton"> THÊM </button> 
+            
+            <button class = "editButton"> SỬA </button> 
         </div>
         
         <div class = "calcItem">
             <div class = "calcItemPro">
                 
                 <div class = "doneQuantity">
-                    <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm (g)" spellcheck="false"> <br>
-                    <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán (g)" spellcheck="false"> <br>
-                    
+                    <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm" spellcheck="false">
+                    <select id="doneWeightUnit"> 
+                        <option value="gr">gr</option> 
+                        <option value="kg">kg</option> 
+                        <option value="L">L</option> 
+                        <option value="mL">mL</option> 
+                    </select>
+
+                    <br>
+
+                    <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán" spellcheck="false">
+                    <select id="sellQuantityUnit"> 
+                        <option value="gr">gr</option> 
+                        <option value="kg">kg</option> 
+                        <option value="L">L</option> 
+                        <option value="mL">mL</option> 
+                    </select>
+                    <br>           
                 </div>
+
+                
 
                 <button> TÍNH </button>
             </div>
 
-            
-        
             <div class = "resultQuantity"></div>
         </div>
-        
         
     </div>
 
