@@ -2,73 +2,82 @@ let ingredients = []
 
 let totalCost = 0;
 let editing = false;
-const edit = document.querySelector(".edit");
-const index = document.querySelector(".id");
-const nameX = document.querySelector(".name");
-const quantity = document.querySelector(".quantity");
-const total = document.querySelector(".total");
-const realQuantity = document.querySelector(".realQuantity");
-const realTotal = document.querySelector(".realTotal");
+
+const ingre = document.querySelector(".ingreTable");
 /*FORMULA: total * realQuantity / quantity*/
 
+/*SHOW COST BOX ITEMS*/
+
 function showItem(){
-    edit.innerHTML = `<h3>Chỉnh sửa</h3>`;
-    index.innerHTML = `<h3>STT</h3>`;
-    nameX.innerHTML = `<h3>Tên</h3>`;
-    quantity.innerHTML = `<h3>Số lượng</h3>`;
-    total.innerHTML = `<h3>Số tiền</h3>`;
-    realQuantity.innerHTML = `<h3>Số lượng TT</h3>`;
-    realTotal.innerHTML = `<h3>Số tiền TT</h3>`;
+    ingre.innerHTML = 
+    `<tr>
+        <th><h3 id = "editCol">Chỉnh sửa</h3></th>
+        <th><h3 id = "idCol">STT</h3></th>       
+        <th><h3 id = "nameCol">Tên</h3></th>
+        <th><h3 id = "quantityCol">Số lượng</h3></th>
+        <th><h3 id = "costCol">Số tiền</h3></th>
+        <th><h3 id = "realQuantityCol">Số lượng TT</h3></th>
+        <th><h3 id = "realCostCol">Số tiền TT</h3></th>
+    </tr>`
     totalCost = 0;
 
     for (let i=0; i<ingredients.length; i++){
         let j = ingredients[i];
         let totalX = j.total * j.realQuantity / j.quantity;
-
-        edit.innerHTML +=
-        `<p>
-        <div class = "edit${i}">
-            <img class = "remove${i}" src = "images/remove.png">
-            <img class = "pencil${i}" src = "images/pencil.png">
-        </div>
-        </p>
-        `
-        index.innerHTML += `<p class = "id${i}">${i+1}</p>`
-        nameX.innerHTML += `<p>${j.name}</p>`
+        let x;
+        let y;
+        let z;
 
         if (j.quantity == ""){
-            quantity.innerHTML += `<p>${j.quantity}</p>`
+            x = `<td>${j.quantity}</td>`
         }
         else{
-            quantity.innerHTML += `<p>${j.quantity} ${j.quantityUnit}</p>`
+            x = `<td>${j.quantity} ${j.quantityUnit}</td>`
         }
-        total.innerHTML += `<p>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</p>`
 
         if (j.realQuantity == ""){
-            realQuantity.innerHTML += `<p>${j.realQuantity}</p>`
+            y = `<td>${j.realQuantity}</td>`
         }
         else{
-            realQuantity.innerHTML += `<p>${j.realQuantity} ${j.realQuantityUnit}</p>`
+            y = `<td>${j.realQuantity} ${j.realQuantityUnit}</td>`
         }
         
         if (j.quantity == '' || j.realQuantity == ''){
-            realTotal.innerHTML += `<p>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</p>`
+            z = `<td>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</td>`
             totalCost += parseInt(j.total);
         }
         else{
-            realTotal.innerHTML += `<p>${totalX.toLocaleString('en', {useGrouping:true})}đ</p>`
+            z = `<td>${totalX.toLocaleString('en', {useGrouping:true})}đ</td>`
             totalCost += totalX;
         }
+
+        ingre.innerHTML +=
+        `
+        <tr class = "item${i}">
+            <td class = "edit${i}">
+                <img class = "remove${i}" src = "images/remove.png">
+                <img class = "pencil${i}" src = "images/pencil.png">
+            </td>
+                    
+            <td class = "id${i}">${i+1}</td>
+                    
+            <td>${j.name}</td>
+                    
+            ${x}
+
+            <td>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</td>
+            ${y}
+
+            ${z}                                  
+        </tr>
+        `      
     }
 
-    document.querySelector(".totalCost").innerHTML = `Total Cost: ${totalCost.toLocaleString('en', {useGrouping:true})}đ`;
+    document.querySelector(".totalCost").innerHTML = `TỔNG TIỀN: ${totalCost.toLocaleString('en', {useGrouping:true})}đ`;
 
     removeItem();
     editItem()
 }
-
-showItem();
-
 
 const calculate = document.querySelector(".calcItem button");
 
@@ -151,20 +160,24 @@ function editItem(){
         let pencilBtn = document.querySelector(".pencil"+i);
     
         pencilBtn.addEventListener("click", ()=> {
-            editing = true;
-            editIndex = i;
-            document.getElementById('nameItem').value = ingredients[i].name;
-            addItem.style.display = "none";
-            editButton.style.display = "block";
+            if (!editing){
+                editing = true;
+                editIndex = i;
 
-            for (let j=0; j<ingredients.length; j++){
-                if (i == j){
-                    document.querySelector(".edit" + i).style.background = "green";
-                }
-                else{
-                    document.querySelector(".edit" + j).style.background = "none";
-                }
+                document.getElementById('nameItem').value = ingredients[i].name;
+                addItem.style.display = "none";
+                editButton.style.display = "block";
+                document.querySelector(".item" + i).style.backgroundColor = "#ffd1dc";            
             }
+            else{
+                editing = false;
+                editIndex = i;
+
+                document.getElementById('nameItem').value = ingredients[i].name;
+                addItem.style.display = "block";
+                editButton.style.display = "none";
+                document.querySelector(".item" + i).style.backgroundColor = "#f2f2f2";
+            }      
         })
     }
 }
@@ -198,5 +211,12 @@ editButton.addEventListener("click", ()=> {
     }
 })
 
+document.getElementById("save").addEventListener("click", ()=> {
+    localStorage.setItem('data', JSON.stringify(ingredients));  
+})
 
+document.getElementById("load").addEventListener("click", ()=> {
+    const savedData = localStorage.getItem('data');
+    console.log(savedData)
+})
 
