@@ -15,141 +15,148 @@
 </head>
 
 <body>
-    <div class = "user_profile">
-        <div class = "changeLang">
-            <select id="languague"> 
-                <option value="VN">VN</option> 
-                <option value="EN">EN</option> 
-            </select>
-        </div>
-
-        <img id = "load" src = "images/load.png"></button>
-
-        <img id = "save" src = "images/save.png">
-        
-        <div class = "user_detail">
-            <p> User Profile: </p>
-        
-            <ul>
-                <li><img src = "images/paw.png"> Username: conthocuteee</li>
-                <li><img src = "images/paw.png"> ZZZ:</li>
-            </ul>
-
-            <div class = "editProfile">
-                <button>Edit your profile</button>
-            </div>
-            
-        </div>
-
-        <div class = "user_image">          
-            <img class = "imageBtn" src = "images/user.png">              
-        </div>
-    </div>
-
-    <div class = "cost">
-        <div class = "listTitle">
-            <div> 
-                <img id = "editTitle" src = "images/pencil.png">
-                <h1 id = "bigTitle">Untitled:</h1>
-            </div>
-
-            <div class = "removeListZ">
-                <div class = "confirmDel">
-                    <p> Delete this list? 
-                        <button id = "yesDel">Yes</button>
-                        <button id = "noDel">No</button>
-                    </p>
-                </div>
-
-                <img id = "removeList" src = "images/remove.png">            
-            </div>
-            
-        </div>
-
-        <table class = "ingreTable">
-            <tr>
-                <th><h3 id = "editCol">Chỉnh sửa</h3></th>        
-                <th><h3 id = "idCol">STT</h3></th>              
-                <th><h3 id = "nameCol">Tên</h3></th>
-                <th><h3 id = "quantityCol">Số lượng</h3></th>
-                <th><h3 id = "costCol">Số tiền</h3></th>
-                <th><h3 id = "realQuantityCol">Số lượng TT</h3></th>
-                <th><h3 id = "realCostCol">Số tiền TT</h3></th>
-            </tr>
-        </table>
-
-        <h2 class = "totalCost">TỔNG TIỀN:</h1>
-    </div>
-
-    <div class = "calculate">
-        <div class = "addItem">
-            <div class = "addItemPro"> 
-                <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false">
-                 
-                <br>
-
-                <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG" spellcheck="false">
-                <select id="quantityItemUnit"> 
-                    <option value="gr">gr</option> 
-                    <option value="kg">kg</option> 
-                    <option value="L">L</option> 
-                    <option value="mL">mL</option> 
+    <!-- ABOVE FOOTER -->
+    <div class = "aboveFooter"> 
+        <div class = "user_profile">
+            <div class = "changeLang">
+                <select id="languague"> 
+                    <option value="VN">VN</option> 
+                    <option value="EN">EN</option> 
                 </select>
-
-                <br>
-
-                <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false"> 
-                
-                <br>
-
-                <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT" spellcheck="false">
-                <select id="realQuantityItemUnit"> 
-                    <option value="gr">gr</option> 
-                    <option value="kg">kg</option> 
-                    <option value="L">L</option> 
-                    <option value="mL">mL</option> 
-                </select>
-                
-                <br>
             </div>
-            
-            <button class = "addButton"> THÊM </button> 
-            
-            <button class = "editButton"> SỬA </button> 
-        </div>
-        
-        <div class = "calcItem">
-            <div class = "calcItemPro">
-                <div class = "doneQuantity">
-                    <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm" spellcheck="false">
-                    <select id="doneWeightUnit"> 
-                        <option value="gr">gr</option> 
-                        <option value="kg">kg</option> 
-                        <option value="L">L</option> 
-                        <option value="mL">mL</option> 
-                    </select>
-
-                    <br>
-
-                    <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán" spellcheck="false">
-                    <select id="sellQuantityUnit"> 
-                        <option value="gr">gr</option> 
-                        <option value="kg">kg</option> 
-                        <option value="L">L</option> 
-                        <option value="mL">mL</option> 
-                    </select>
-                    <br>           
-                </div>
-
-                <button id = "calcBtn"> TÍNH </button>
-            </div>
-
-            <div class = "resultQuantity"></div>
-        </div>
-        
-    </div>
-
     
+            <img id = "load" src = "images/load.png"></button>
+    
+            <img id = "save" src = "images/save.png">
+            
+            <div class = "user_detail">
+                <p> User Profile: </p>
+            
+                <ul>
+                    <li><img src = "images/paw.png"> Username: conthocuteee</li>
+                    <li><img src = "images/paw.png"> ZZZ:</li>
+                </ul>
+    
+                <div class = "editProfile">
+                    <button>Edit your profile</button>
+                </div>
+                
+            </div>
+    
+            <div class = "user_image">          
+                <img class = "imageBtn" src = "images/user.png">              
+            </div>
+        </div>
+        
+        <!-- Table, Add and Calc -->
+        <div class = "tableAndCalc">
+            <div class = "cost">
+                <div class = "listTitle">
+                    <div> 
+                        <img id = "editTitle" src = "images/pencil.png">
+                        <h1 id = "bigTitle">Untitled:</h1>
+                    </div>
+        
+                    <div class = "removeListZ">
+                        <div class = "confirmDel">
+                            <p> Delete this list? 
+                                <button id = "yesDel">Yes</button>
+                                <button id = "noDel">No</button>
+                            </p>
+                        </div>
+        
+                        <img id = "removeList" src = "images/remove.png">            
+                    </div>
+                    
+                </div>
+        
+                <table class = "ingreTable">
+                    <tr>
+                        <th><h3 id = "editCol">Chỉnh sửa</h3></th>        
+                        <th><h3 id = "idCol">STT</h3></th>              
+                        <th><h3 id = "nameCol">Tên</h3></th>
+                        <th><h3 id = "quantityCol">Số lượng</h3></th>
+                        <th><h3 id = "costCol">Số tiền</h3></th>
+                        <th><h3 id = "realQuantityCol">Số lượng TT</h3></th>
+                        <th><h3 id = "realCostCol">Số tiền TT</h3></th>
+                    </tr>
+                </table>
+        
+                <h2 class = "totalCost">TỔNG TIỀN:</h1>
+            </div>
+        
+            <div class = "calculate">
+                <div class = "addItem">
+                    <div class = "addItemPro"> 
+                        <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false">
+                         
+                        <br>
+        
+                        <input type = "number" id = "quantityItem" placeholder="SỐ LƯỢNG" spellcheck="false">
+                        <select id="quantityItemUnit"> 
+                            <option value="gr">gr</option> 
+                            <option value="kg">kg</option> 
+                            <option value="L">L</option> 
+                            <option value="mL">mL</option> 
+                        </select>
+        
+                        <br>
+        
+                        <input type = "number" id = "totalItem" placeholder="SỐ TIỀN (Đ)" spellcheck="false"> 
+                        
+                        <br>
+        
+                        <input type = "number" id = "realQuantityItem" placeholder="SỐ LƯỢNG TT" spellcheck="false">
+                        <select id="realQuantityItemUnit"> 
+                            <option value="gr">gr</option> 
+                            <option value="kg">kg</option> 
+                            <option value="L">L</option> 
+                            <option value="mL">mL</option> 
+                        </select>
+                        
+                        <br>
+                    </div>
+                    
+                    <button class = "addButton"> THÊM </button> 
+                    
+                    <button class = "editButton"> SỬA </button> 
+                </div>
+                
+                <div class = "calcItem">
+                    <div class = "calcItemPro">
+                        <div class = "doneQuantity">
+                            <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm" spellcheck="false">
+                            <select id="doneWeightUnit"> 
+                                <option value="gr">gr</option> 
+                                <option value="kg">kg</option> 
+                                <option value="L">L</option> 
+                                <option value="mL">mL</option> 
+                            </select>
+        
+                            <br>
+        
+                            <input type = "number" id = "sellQuantity" placeholder="Tổng số lượng muốn bán" spellcheck="false">
+                            <select id="sellQuantityUnit"> 
+                                <option value="gr">gr</option> 
+                                <option value="kg">kg</option> 
+                                <option value="L">L</option> 
+                                <option value="mL">mL</option> 
+                            </select>
+                            <br>           
+                        </div>
+        
+                        <button id = "calcBtn"> TÍNH </button>
+                    </div>
+        
+                    <div class = "resultQuantity"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- FOOTER -->
     <div class = "footer">
         <img id = "addFooter" src = "images/add.png"></img>
     </div>

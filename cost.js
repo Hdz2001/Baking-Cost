@@ -186,6 +186,8 @@ calculate.addEventListener("click", ()=> {
         </ul>  
         */
 
+        document.querySelector(".resultQuantity").style.display = "block";
+        
         document.querySelector(".resultQuantity").innerHTML =
         `
         <h3>Giá tiền: ${totalSell.toLocaleString('en', {useGrouping:true})}đ </h3>       

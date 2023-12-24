@@ -11,6 +11,13 @@ body{
     font-size: 20px;
 }
 
+/* ABOVE FOOTER */
+.aboveFooter{
+    max-height: 92vh;
+    overflow-y: auto;
+    padding-bottom: 2vh;
+}
+
 /*USER*/
 .user_profile{
     display: flex;
@@ -76,12 +83,26 @@ body{
 }
 
 /*COST*/
-.cost{
+.tableAndCalc{
+    display: flex;
+    justify-content: space-between;
     margin: 20px;
+}
+
+/*COST*/
+.cost{
     padding: 20px;
     border-radius: 20px;
     background-color: #89CFF0; 
     border-style: solid;
+
+    width: 70%;
+
+    max-width: 70%;
+    max-height: 75vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    align-self: flex-start;
 }
 
 .listTitle{
@@ -189,7 +210,7 @@ table td img{
 }
 
 table th, td {  
-    padding: 10px;   
+    padding: 5px;   
 }
 
 table tr:nth-child(odd){
@@ -215,18 +236,13 @@ td:last-child, th:last-child {
 }
 
 /*ADD BOX*/
-.calculate{
-    display: flex;
-    justify-content: space-around;
-
-}
-
-/*ADD BOX*/
 .addItem{
     display: flex;
     text-align: center;
     background-color: #ffd1dc;
     border-radius: 20px;
+    border-style: solid;
+    margin-bottom: 20px;
 }
 
 .addItem input{
@@ -260,7 +276,13 @@ td:last-child, th:last-child {
     text-align: center;
     background-color: #ffd1dc;
     border-radius: 20px;
+    border-style: solid;
 }
+
+.calcItemPro{
+    padding-bottom: 20px;
+}
+
 .doneQuantity{
     text-align: center;
     margin: 20px;
@@ -278,14 +300,13 @@ td:last-child, th:last-child {
     border-radius: 20px;
     padding: 10px;
     cursor: pointer;
-    align-self: center;
 }
 
 .resultQuantity{
+    display: none;
     text-align: center;
     padding-bottom: 20px;
     line-height: 1.75;
-    margin: 10px;
 }
 
 /*SELECT BOX*/
@@ -298,13 +319,15 @@ select {
 /*FOOTER*/
 .footer{
     background-color: #C1E1C1;
-    position: absolute;
     display: flex;
-    bottom: 0;
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
     font-size: 25px;
+
+    max-height: 8vh;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer img{
