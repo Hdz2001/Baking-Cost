@@ -1,5 +1,5 @@
 let ingredients = []
-let listIngredients = []
+let listIngredients = [ingredients]
 let titleList = [
     {
     id: 0,
@@ -14,9 +14,83 @@ let editing = false;
 const ingre = document.querySelector(".ingreTable");
 /*FORMULA: total * realQuantity / quantity*/
 
-/*SHOW COST BOX ITEMS*/
+/*COST BOX*/
+const editTitleBtn = document.getElementById("editTitle");
+const boxTitle = document.getElementById("bigTitle");
+let editingTitle = false;
 
+/*REMOVE LIST*/
+const removeList = document.getElementById("removeList");
+const confirmDel = document.querySelector(".confirmDel");
+const yesDel = document.getElementById("yesDel");
+const noDel = document.getElementById("noDel");
+
+removeList.addEventListener("click", ()=> {
+    if (listIngredients.length > 1){
+        confirmDel.style.display = "block";
+
+        yesDel.addEventListener("click", ()=> {
+            listIngredients.splice(currentIndex, 1);
+            titleList.splice(currentIndex, 1);
+
+            if (currentIndex != 0){
+                currentIndex -= 1;
+            } 
+
+            ingredients = listIngredients[currentIndex];
+
+            confirmDel.style.display = "none";
+
+            /*SHOULD ADD CONFIRMATION WINDOW*/
+
+            showItem();
+            showFooter();
+        })
+
+        noDel.addEventListener("click", ()=> {
+            confirmDel.style.display = "none";
+        })     
+    }
+})
+
+/*EDIT BOX TITLE*/
+editTitleBtn.addEventListener("click", ()=> {
+    editingTitle = !editingTitle;
+
+    if (editingTitle){
+        boxTitle.innerHTML = `
+        <input type = "text" id = "boxTitle" placeholder="TÊN" spellcheck="false"></input>
+        <button id = "finalize">SỬA</button>
+        <button id = "abort">HỦY</button>
+        `;
+
+        const inputTitle = document.getElementById("boxTitle");
+
+        document.getElementById("abort").addEventListener("click", ()=> {
+            editingTitle = !editingTitle;
+            boxTitle.innerHTML = `${titleList[currentIndex].title}`;
+        })
+
+        document.getElementById("finalize").addEventListener("click", ()=> {
+            if (inputTitle.value != ''){   
+                editingTitle = !editingTitle;
+                titleList[currentIndex].title = inputTitle.value;
+                boxTitle.innerHTML = `${titleList[currentIndex].title}`;
+                showFooter();
+            }
+        })
+    }
+    else{
+        // if canceled
+        boxTitle.innerHTML = `${titleList[currentIndex].title}`;
+    }
+    
+})
+
+/*SHOW COST BOX ITEMS*/
 function showItem(){
+    boxTitle.innerHTML = `${titleList[currentIndex].title}`;
+
     ingre.innerHTML = 
     `<tr>
         <th><h3 id = "editCol">Chỉnh sửa</h3></th>
@@ -248,6 +322,8 @@ function showFooter(){
         titleBox.addEventListener("click", () => {
             currentIndex = index;
 
+            confirmDel.style.display = "none";
+
             titleBox.style.backgroundColor = "#ffd1dc";
 
             for (let i=0; i<titleList.length; i++){
@@ -265,6 +341,7 @@ function showFooter(){
 
 showFooter();
 
+/* ADD ITEM FOOTER*/
 footer.addEventListener("click", (event)=> {
     if (event.target.id === "addFooter"){
         titleList.push(
@@ -281,7 +358,7 @@ footer.addEventListener("click", (event)=> {
     }
 })
 
-
+/*LOAD AND SAVE*/
 document.getElementById("save").addEventListener("click", ()=> {
     localStorage.setItem('ingredientsList', JSON.stringify(listIngredients));
     localStorage.setItem('footerList', JSON.stringify(titleList));

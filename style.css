@@ -60,6 +60,7 @@ body{
     font-size: 20px;
     border-radius: 20px;
     padding: 5px;
+    cursor: pointer;
 }
 
 .user_detail ul{
@@ -83,8 +84,92 @@ body{
     border-style: solid;
 }
 
-.cost h1{
+.listTitle{
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 10px;
+}
+
+.listTitle h1{
+    display: inline-block;
+}
+
+.listTitle img{
+    width: 50px;
+    cursor: pointer;
+}
+
+.listTitle input{
+    font-weight: bold;
+    font-size: 35px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50%;
+}
+
+.listTitle button{
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    align-self: center;
+}
+
+#finalize{
+    background-color: lightgreen;
+}
+
+#abort{
+    background-color: #ff6961 ;
+}
+
+.removeListZ{
+    display: flex;
+    /*position: relative;*/
+}
+
+.confirmDel{
+    display: none;
+    background: white;
+    align-self: center;
+    font-size: 20px;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 10px;
+    margin-right: 10px;
+
+    /* EFFECT  */
+    /* Start with width 0 */
+    /*position: relative;
+    right: 50px;*/
+    /*white-space: nowrap;
+    overflow: hidden;
+
+    width: 0; /* Start with width 0 */
+    /*animation: slideIn 1s ease-in forwards; /* Animation duration, easing, and fill mode */ 
+}
+
+@keyframes slideIn {
+    to {
+        
+        width: 100%; /* Slide in to the full width */
+    }
+}
+
+#yesDel{
+    background-color: lightgreen;
+}
+
+#noDel{
+    background-color: #ff6961;
+}
+
+#removeList{
+    /*
+    position: absolute;
+    right: 0;*/
+    align-self: center;
 }
 
 /* INGRE TABLE*/
