@@ -1,4 +1,12 @@
 let ingredients = []
+let listIngredients = []
+let titleList = [
+    {
+    id: 0,
+    title: "Untitled"
+    }
+]; 
+let currentIndex = 0;
 
 let totalCost = 0;
 let editing = false;
@@ -21,64 +29,73 @@ function showItem(){
     </tr>`
     totalCost = 0;
 
-    for (let i=0; i<ingredients.length; i++){
-        let j = ingredients[i];
-        let totalX = j.total * j.realQuantity / j.quantity;
-        let x;
-        let y;
-        let z;
-
-        if (j.quantity == ""){
-            x = `<td>${j.quantity}</td>`
+    if (ingredients != undefined || ingredients.length != 0){
+        for (let i=0; i<ingredients.length; i++){
+            let j = ingredients[i];
+            let totalX = j.total * j.realQuantity / j.quantity;
+            let x;
+            let y;
+            let z;
+    
+            if (j.quantity == ""){
+                x = `<td>${j.quantity}</td>`
+            }
+            else{
+                x = `<td>${j.quantity} ${j.quantityUnit}</td>`
+            }
+    
+            if (j.realQuantity == ""){
+                y = `<td>${j.realQuantity}</td>`
+            }
+            else{
+                y = `<td>${j.realQuantity} ${j.realQuantityUnit}</td>`
+            }
+            
+            if (j.quantity == '' || j.realQuantity == ''){
+                z = `<td>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</td>`
+                totalCost += parseInt(j.total);
+            }
+            else{
+                z = `<td>${totalX.toLocaleString('en', {useGrouping:true})}đ</td>`
+                totalCost += totalX;
+            }
+    
+            ingre.innerHTML +=
+            `
+            <tr class = "item${i}">
+                <td class = "edit${i}">
+                    <img class = "remove${i}" src = "images/remove.png">
+                    <img class = "pencil${i}" src = "images/pencil.png">
+                </td>
+                        
+                <td class = "id${i}">${i+1}</td>
+                        
+                <td>${j.name}</td>
+                        
+                ${x}
+    
+                <td>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</td>
+                ${y}
+    
+                ${z}                                  
+            </tr>
+            `      
         }
-        else{
-            x = `<td>${j.quantity} ${j.quantityUnit}</td>`
-        }
-
-        if (j.realQuantity == ""){
-            y = `<td>${j.realQuantity}</td>`
-        }
-        else{
-            y = `<td>${j.realQuantity} ${j.realQuantityUnit}</td>`
-        }
-        
-        if (j.quantity == '' || j.realQuantity == ''){
-            z = `<td>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</td>`
-            totalCost += parseInt(j.total);
-        }
-        else{
-            z = `<td>${totalX.toLocaleString('en', {useGrouping:true})}đ</td>`
-            totalCost += totalX;
-        }
-
-        ingre.innerHTML +=
-        `
-        <tr class = "item${i}">
-            <td class = "edit${i}">
-                <img class = "remove${i}" src = "images/remove.png">
-                <img class = "pencil${i}" src = "images/pencil.png">
-            </td>
-                    
-            <td class = "id${i}">${i+1}</td>
-                    
-            <td>${j.name}</td>
-                    
-            ${x}
-
-            <td>${parseInt(j.total).toLocaleString('en', {useGrouping:true})}đ</td>
-            ${y}
-
-            ${z}                                  
-        </tr>
-        `      
+    
+        document.querySelector(".totalCost").innerHTML = `TỔNG TIỀN: ${totalCost.toLocaleString('en', {useGrouping:true})}đ`;
     }
+    
 
-    document.querySelector(".totalCost").innerHTML = `TỔNG TIỀN: ${totalCost.toLocaleString('en', {useGrouping:true})}đ`;
+    listIngredients[currentIndex] = ingredients;
 
     removeItem();
     editItem()
 }
 
+showItem();
+console.log(listIngredients)
+
+/*CALC ITEM*/
 const calculate = document.querySelector(".calcItem button");
 
 calculate.addEventListener("click", ()=> {
@@ -102,6 +119,7 @@ calculate.addEventListener("click", ()=> {
     }
 })
 
+/*ADD ITEM*/
 const addItem = document.querySelector(".addButton");
 
 addItem.addEventListener("click", ()=> {
@@ -211,12 +229,72 @@ editButton.addEventListener("click", ()=> {
     }
 })
 
+/*FOOTER*/
+const footer = document.querySelector(".footer");
+const addFooter = document.getElementById("addFooter");
+
+function showFooter(){
+    footer.innerHTML = 
+    `<img id = "addFooter" src = "images/add.png"></img>`
+
+    for (let i=0; i<titleList.length; i++){
+        footer.innerHTML += `<p id = "listTitle${i}">${titleList[i].title}</p>`;
+    }
+
+    document.getElementById("listTitle"+currentIndex).style.backgroundColor = "#ffd1dc"
+
+    // add event for item button
+    document.querySelectorAll('[id^="listTitle"]').forEach((titleBox, index) => {
+        titleBox.addEventListener("click", () => {
+            currentIndex = index;
+
+            titleBox.style.backgroundColor = "#ffd1dc";
+
+            for (let i=0; i<titleList.length; i++){
+                if (i != index){
+                    document.getElementById("listTitle"+i).style.backgroundColor = "transparent"
+                }
+            }
+    
+            ingredients = listIngredients[index];
+
+            showItem();
+        });
+    });
+}
+
+showFooter();
+
+footer.addEventListener("click", (event)=> {
+    if (event.target.id === "addFooter"){
+        titleList.push(
+            {
+                id: titleList.length,
+                title: "Untitled"
+            }
+        )
+        
+        // add new ingredient array for new list
+        listIngredients.push([]);
+
+        showFooter();       
+    }
+})
+
+
 document.getElementById("save").addEventListener("click", ()=> {
-    localStorage.setItem('data', JSON.stringify(ingredients));  
+    localStorage.setItem('ingredientsList', JSON.stringify(listIngredients));
+    localStorage.setItem('footerList', JSON.stringify(titleList));
 })
 
 document.getElementById("load").addEventListener("click", ()=> {
-    const savedData = localStorage.getItem('data');
-    console.log(savedData)
-})
+    const ingredientListData = localStorage.getItem('ingredientsList');
+    const footerListData = localStorage.getItem('footerList');
 
+    listIngredients = JSON.parse(ingredientListData);
+    ingredients = listIngredients[0];
+    titleList = JSON.parse(footerListData);
+
+    showItem();
+    showFooter();
+})

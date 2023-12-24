@@ -15,14 +15,18 @@
 </head>
 
 <body>
-    <div class = "user_profile">   
+    <div class = "user_profile">
         <div class = "changeLang">
             <select id="languague"> 
                 <option value="VN">VN</option> 
                 <option value="EN">EN</option> 
             </select>
         </div>
+        
+        <img id = "load" src = "images/load.png"></button>
 
+        <img id = "save" src = "images/save.png">
+        
         <div class = "user_detail">
             <p> User Profile: </p>
         
@@ -44,9 +48,6 @@
 
     <div class = "cost">
         <h1 id = "bigTitle">TÍNH TIỀN:</h1>
-
-        <button id = "save">save</button>
-        <button id = "load">load</button>
 
         <table class = "ingreTable">
             <tr>
@@ -102,7 +103,6 @@
         
         <div class = "calcItem">
             <div class = "calcItemPro">
-                
                 <div class = "doneQuantity">
                     <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm" spellcheck="false">
                     <select id="doneWeightUnit"> 
@@ -130,6 +130,11 @@
             <div class = "resultQuantity"></div>
         </div>
         
+    </div>
+
+    
+    <div class = "footer">
+        <img id = "addFooter" src = "images/add.png"></img>
     </div>
 
     <script src = "script.js"></script>

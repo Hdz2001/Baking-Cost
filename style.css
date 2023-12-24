@@ -13,10 +13,17 @@ body{
 
 /*USER*/
 .user_profile{
-    position: relative;
     display: flex;
     padding: 20px;
     justify-content: right;
+}
+
+#save, #load{
+    width: 80px;
+    height: 60px;
+    align-self: normal;
+    cursor: pointer;
+    padding-right: 20px;
 }
 
 .changeLang{
@@ -30,7 +37,7 @@ body{
 
 .user_image img{
     width: 70px;
-    align-self: center;
+    align-self: top;
     cursor: pointer;
 }
 
@@ -122,32 +129,11 @@ td:last-child, th:last-child {
     text-align: right;
 }
 
-/*CALC BOX*/
-.doneQuantity{
-    text-align: center;
-    margin: 20px;
-}
+/*ADD BOX*/
+.calculate{
+    display: flex;
+    justify-content: space-around;
 
-.doneQuantity input{
-    font-size: 20px;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
-}
-
-.calcItem button{
-    font-size: 20px;
-    border-radius: 20px;
-    padding: 10px;
-    cursor: pointer;
-    align-self: center;
-}
-
-.resultQuantity{
-    text-align: center;
-    padding-bottom: 20px;
-    line-height: 1.75;
-    margin: 10px;
 }
 
 /*ADD BOX*/
@@ -183,20 +169,77 @@ td:last-child, th:last-child {
     text-align: left;
 }
 
+/*CALC BOX*/
+.calcItem{
+    align-self: center;
+    text-align: center;
+    background-color: #ffd1dc;
+    border-radius: 20px;
+}
+.doneQuantity{
+    text-align: center;
+    margin: 20px;
+}
+
+.doneQuantity input{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.calcItem button{
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.resultQuantity{
+    text-align: center;
+    padding-bottom: 20px;
+    line-height: 1.75;
+    margin: 10px;
+}
+
+/*SELECT BOX*/
 select {
     font-size: 20px;
     border-radius: 20px;
     padding: 10px;
 }
 
-.calculate{
+/*FOOTER*/
+.footer{
+    background-color: #C1E1C1;
+    position: absolute;
     display: flex;
-    justify-content: space-around;
-
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    font-size: 25px;
 }
 
-.calcItem{
-    text-align: center;
-    background-color: #ffd1dc;
+.footer img{
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.footer p{
     border-radius: 20px;
+    border-style: solid;
+    padding: 10px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.footer p:hover{
+    background-color: #ddd !important;
 }
