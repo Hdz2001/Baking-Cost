@@ -50,6 +50,7 @@
         
         <!-- Table, Add and Calc -->
         <div class = "tableAndCalc">
+            <!-- INGREDIENTS -->
             <div class = "cost">
                 <div class = "listTitle">
                     <div> 
@@ -84,10 +85,15 @@
         
                 <h2 class = "totalCost">TỔNG TIỀN:</h1>
             </div>
-        
+            
+            <!-- CALCULATE -->
             <div class = "calculate">
                 <div class = "addItem">
+                    
+                    <h2 id = "bigTitle">Add item:</h2>
+                    
                     <div class = "addItemPro"> 
+
                         <input type = "text" id = "nameItem" placeholder="TÊN" spellcheck="false">
                          
                         <br>
@@ -124,7 +130,10 @@
                 
                 <div class = "calcItem">
                     <div class = "calcItemPro">
+                        <h2 id = "bigTitle">Calculate:</h2>
+
                         <div class = "doneQuantity">
+
                             <input type = "number" id = "doneWeight" placeholder="Số cân thành phẩm" spellcheck="false">
                             <select id="doneWeightUnit"> 
                                 <option value="gr">gr</option> 

@@ -6,23 +6,22 @@
 }
 
 body{
-    background: url("images/cutecat.jpg");
+    background: url("images/pusheen-bake.jpg");
     background-size: cover;
     font-size: 20px;
 }
 
 /* ABOVE FOOTER */
 .aboveFooter{
-    max-height: 92vh;
     overflow-y: auto;
-    padding-bottom: 2vh;
+    padding: 1vw;
 }
 
 /*USER*/
 .user_profile{
     display: flex;
-    padding: 20px;
     justify-content: right;
+    margin-bottom: 1vw;
 }
 
 #save, #load{
@@ -85,8 +84,7 @@ body{
 /*COST*/
 .tableAndCalc{
     display: flex;
-    justify-content: space-between;
-    margin: 20px;
+    gap: 1vw;
 }
 
 /*COST*/
@@ -96,13 +94,12 @@ body{
     background-color: #89CFF0; 
     border-style: solid;
 
-    width: 70%;
+    width: 74vw;
 
-    max-width: 70%;
-    max-height: 75vh;
-    overflow-y: auto;
+    max-width: 74vw;
     overflow-x: auto;
     align-self: flex-start;
+    opacity: 0.9;
 }
 
 .listTitle{
@@ -235,18 +232,32 @@ td:last-child, th:last-child {
     text-align: right;
 }
 
+/*CALCULATE*/
+.calculate{
+    width: 25vw;
+    position: sticky;
+    top: 0;
+}
+
+.calculate select{
+    font-size: 18px;
+}
+
 /*ADD BOX*/
 .addItem{
-    display: flex;
     text-align: center;
     background-color: #ffd1dc;
     border-radius: 20px;
     border-style: solid;
     margin-bottom: 20px;
+    padding: 1vw;
+    overflow: auto;
+    
+    opacity: 0.9;
 }
 
 .addItem input{
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
@@ -266,7 +277,6 @@ td:last-child, th:last-child {
 }
 
 .addItemPro{
-    margin: 20px;
     text-align: left;
 }
 
@@ -277,19 +287,18 @@ td:last-child, th:last-child {
     background-color: #ffd1dc;
     border-radius: 20px;
     border-style: solid;
-}
-
-.calcItemPro{
-    padding-bottom: 20px;
+    padding: 1vw;
+    overflow: auto;
+    
+    opacity: 0.9;
 }
 
 .doneQuantity{
     text-align: center;
-    margin: 20px;
 }
 
 .doneQuantity input{
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
@@ -305,8 +314,8 @@ td:last-child, th:last-child {
 .resultQuantity{
     display: none;
     text-align: center;
-    padding-bottom: 20px;
     line-height: 1.75;
+    margin-top: 10px;
 }
 
 /*SELECT BOX*/
@@ -322,17 +331,17 @@ select {
     display: flex;
     width: 100%;
     max-width: 100%;
-    overflow-x: auto;
     font-size: 25px;
-
-    max-height: 8vh;
+    border-top: solid;
     position: fixed;
     bottom: 0;
+    padding: 1vh;
+    
+    opacity: 0.9;
 }
 
 .footer img{
-    margin: 10px;
-    width: 50px;
+    width: 50px; /*ORGINALLY 50px*/
     height: 50px;
     cursor: pointer;
     align-self: center;
@@ -341,13 +350,42 @@ select {
 .footer p{
     border-radius: 20px;
     border-style: solid;
-    padding: 10px;
-    margin: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 1vh;
+    padding: 1vh;
     cursor: pointer;
+    align-self: center;
 }
 
 .footer p:hover{
     background-color: #ddd !important;
+}
+
+/*SCROLLBAR*/
+/* For WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 6px;
+    background-color: gray;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 6px;
+}
+  
+/* For Firefox */
+*{
+    scrollbar-width: thin;
+    scrollbar-color: lightgray transparent;
+}
+  
+*::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 6px;
+    background-color: gray;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 6px;
 }

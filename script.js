@@ -132,3 +132,15 @@ langBtn.addEventListener("change", function() {
     changeAdd();
     changeCalc();
 });
+
+/*ZOOM IN AND OUT*/
+let footerDiv = document.querySelector(".footer");
+
+window.addEventListener('resize', function() {
+    var viewportHeight = window.innerHeight;
+    var maxHeight = viewportHeight - footerDiv.clientHeight; // Adjust the percentage as needed
+    document.querySelector('.aboveFooter').style.maxHeight = maxHeight + 'px';
+});
+  
+// Initial setup
+window.dispatchEvent(new Event('resize'));
