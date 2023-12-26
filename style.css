@@ -331,12 +331,13 @@ select {
     display: flex;
     width: 100%;
     max-width: 100%;
+    overflow-x: auto;
     font-size: 25px;
     border-top: solid;
     position: fixed;
     bottom: 0;
     padding: 1vh;
-    
+
     opacity: 0.9;
 }
 
